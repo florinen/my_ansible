@@ -4,7 +4,7 @@
   gather_facts: false
   #remote_user: root
   tasks:
-    - name: Add the user 'centos' with a bash shell
+    - name: Add the user 'florinen' with a bash shell
       user:
         name: florinen
         comment: test user
