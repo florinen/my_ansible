@@ -1,0 +1,42 @@
+- hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: false
+  #remote_user: root
+  tasks:
+    - name: Add the user 'centos' with a bash shell
+      user:
+        name: florinen
+        comment: kubernetes user
+        shell: /bin/bash
+        #password: 
+        #groups: 
+        append: yes
+      register: new_user
+    - name: Create a 2048-bit SSH key for user florinen 
+      user:
+        name: florinen
+        generate_ssh_key: yes
+        ssh_key_bits: 2048
+        ssh_key_file: .ssh/id_rsa
+    
+    - name: add user to sudoers
+      lineinfile:
+        path: /etc/sudoers
+        line: 'florinen  ALL=(ALL)       NOPASSWD: ALL'
+        insertafter: '# %wheel'
+        state: present
+
+    - name: Set authorized key took from root user
+      authorized_key:
+        user: florinen
+        state: present
+        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+        manage_dir: yes
+    #- name: Set authorized key taken from file
+    #  authorized_key:
+    #    user: root
+    #    state: absent
+    #    key: '{{ item }}'
+    #  with_file:
+    #    - /root/vmware/config/data/desktop_pub_key
