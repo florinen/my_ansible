@@ -9,13 +9,11 @@ pipeline {
           }
         }
         
-           
-         
         stage('Ansible Deploy') {
              
             steps {
                  
-              dir('$(WORKSPACE)/my_ansible')
+              dir('my_ansible')
               {
                
                sh 'ansible all -m ping -i hosts'
