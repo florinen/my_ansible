@@ -1,5 +1,5 @@
 pipeline {
-    ansiblePlaybook colorized: true, installation: 'Ansible-2.8.1', inventory: '$(WORKSPACE)/my_ansible', playbook: '$(WORKSPACE)/my_ansible'
+    
     agent any
     stages {
       stage('checkout') {
