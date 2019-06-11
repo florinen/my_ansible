@@ -36,10 +36,4 @@
     - name: display mesage
       debug:
         msg: "{{ MSG }}"
-    #- name: Set authorized key taken from file
-    #  authorized_key:
-    #    user: root
-    #    state: absent
-    #    key: '{{ item }}'
-    #  with_file:
-    #    - /root/vmware/config/data/desktop_pub_key
+     
