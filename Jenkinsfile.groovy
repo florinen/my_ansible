@@ -4,7 +4,7 @@ pipeline {
       stage('checkout') {
            steps {
            
-                git branch: 'master', url: 'https://github.com/florinen/my_ansible.git'
+                git branch: 'master', url: 'git@github.com:florinen/my_ansible.git'
              
           }
         }
