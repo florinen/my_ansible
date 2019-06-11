@@ -2,4 +2,4 @@
 
 
 [test]
-test1 ansible_host=10.10.45.120 ansible_private_key_file=/root/.jenkins/ansible/bastion_key
+test1 ansible_host=10.10.45.120 ansible_private_key_file=/root/.jenkins/ansible/ssh_keys/bastion_key
