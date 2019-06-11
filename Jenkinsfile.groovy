@@ -1,5 +1,4 @@
 pipeline {
-    
     agent any
     stages {
       stage('checkout') {
@@ -26,7 +25,7 @@ pipeline {
              
             steps {
                  
-              dir('my_ansible')
+              dir('$(WORKSPACE)/my_ansible')
               {
                
                sh 'ansible all -m ping -i hosts'
