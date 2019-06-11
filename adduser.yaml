@@ -25,7 +25,7 @@
         path: /etc/sudoers
         line: 'florinen  ALL=(ALL)       NOPASSWD: ALL'
         insertafter: '%sudo'
-        state: absent
+        state: present
 
     - name: Set authorized key took from root user
       authorized_key:
@@ -33,6 +33,9 @@
         state: present
         key: "{{ lookup('file', '/root/.jenkins/ansible/ssh_keys/bastion_key.pub') }}"
         manage_dir: yes
+    - name: display mesage
+      debug:
+        msg: "{{ MSG }}"
     #- name: Set authorized key taken from file
     #  authorized_key:
     #    user: root
