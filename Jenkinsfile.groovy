@@ -13,12 +13,9 @@ pipeline {
              
             steps {
                  
-              dir('my_ansible')
-              {
-               
+                             
                sh 'ansible all -m ping -i hosts'
                
-            }
             }
         }
     }
