@@ -24,7 +24,7 @@
       lineinfile:
         path: /etc/sudoers
         line: 'florinen  ALL=(ALL)       NOPASSWD: ALL'
-        insertafter: '# %wheel'
+        insertafter: '%sudo'
         state: present
 
     - name: Set authorized key took from root user
