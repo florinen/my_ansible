@@ -1,4 +1,5 @@
 pipeline {
+    ansiblePlaybook colorized: true, installation: 'Ansible-2.8.1', inventory: '$(WORKSPACE)/my_ansible', playbook: '$(WORKSPACE)/my_ansible'
     agent any
     stages {
       stage('checkout') {
@@ -25,7 +26,7 @@ pipeline {
              
             steps {
                  
-              dir('ansible/my_ansible')
+              dir('my_ansible')
               {
                
                sh 'ansible all -m ping -i hosts'
