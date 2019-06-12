@@ -1,9 +1,8 @@
 
 pipeline {
     agent any
-    properties([parameters([string(defaultValue: 'Hello! Florin', description: '', name: 'ANSIBLE_MSG', trim: true)])])
-    environment {
-  MSG = "$ANSIBLE_MSG"
+    wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
+  sh 'something that outputs ansi colored stuff'
 }
     stages {
       stage('Checkout SCM') {
@@ -19,4 +18,5 @@ pipeline {
         }
     }
 }
+
  
