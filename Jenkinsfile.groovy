@@ -15,10 +15,4 @@ pipeline {
         }
     }
 }
-ansiColor('xterm') {
-        ansiblePlaybook(
-        playbook: '$(WORKSPACE)/my_ansible',
-        inventory: '$(WORKSPACE)/my_ansible',
-        credentialsId: 'bastion_keys',
-        colorized: true)
-    }
+ 
