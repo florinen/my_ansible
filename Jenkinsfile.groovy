@@ -1,5 +1,4 @@
 pipeline {
-    agent any
     ansiColor('xterm') {
         ansiblePlaybook(
         playbook: '$(WORKSPACE)/my_ansible',
@@ -7,6 +6,8 @@ pipeline {
         credentialsId: 'bastion_keys',
         colorized: true)
     }
+    agent any
+    
     stages {
       stage('Checkout SCM') {
           steps {
