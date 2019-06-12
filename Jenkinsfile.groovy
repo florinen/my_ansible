@@ -1,20 +1,15 @@
 pipeline {
     agent any
     stages {
-      stage('checkout') {
-           steps {
-           
-                git branch: 'master', url: 'https://github.com/florinen/my_ansible.git'
+      stage('Checkout SCM') {
+        git branch: 'master', url: 'https://github.com/florinen/my_ansible.git'
              
-          }
         }
-        
-        stage('Ansible Deploy') {
-             
-            steps {
+      stage('Ansible Deploy') {
+            
+          steps {
                  
-                             
-               sh 'ansible all -m ping -i hosts'
+               sh 'ansible -i hosts -m ping all'
                
             }
         }
