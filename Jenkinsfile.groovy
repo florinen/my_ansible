@@ -11,13 +11,11 @@ pipeline {
         }
       stage('Ansible Deploy') {
            steps {
-               sh 'ansible-playbook -i hosts adduser.yaml '
+               sh 'ansible-playbook -i hosts adduser.yaml ',
+               sh 'ansible -i hosts -m ping all'
             }
         }
     }
 }
 
  
-ansiColor('xterm') {
-  echo 'something that outputs ansi colored stuff'
-}
