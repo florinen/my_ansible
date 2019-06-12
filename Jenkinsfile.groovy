@@ -1,7 +1,7 @@
 
 pipeline {
     agent any
-    
+    properties([parameters([string(defaultValue: 'Hello! Florin', description: '', name: 'ANSIBLE_MSG', trim: true)])])
     stages {
       stage('Checkout SCM') {
           steps {
