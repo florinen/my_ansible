@@ -33,7 +33,7 @@
         state: present
         key: "{{ lookup('file', '/root/.jenkins/ansible/ssh_keys/bastion_key.pub') }}"
         manage_dir: yes
-    - name: display mesage
-      debug:
-        msg: "{{ MSG }}"
+    #- name: display mesage
+    #  debug:
+    #    msg: "{{ MSG }}"
      
