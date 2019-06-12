@@ -1,4 +1,4 @@
-export ANSIBLE_FORCE_COLOR=true
+
 pipeline {
     agent any
     
