@@ -1,9 +1,7 @@
 
 pipeline {
     agent any
-    wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
-  sh 'something that outputs ansi colored stuff'
-}
+    
     stages {
       stage('Checkout SCM') {
           steps {
@@ -20,3 +18,6 @@ pipeline {
 }
 
  
+ansiColor('xterm') {
+  echo 'something that outputs ansi colored stuff'
+}
