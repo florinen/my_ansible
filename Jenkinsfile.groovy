@@ -11,7 +11,7 @@ pipeline {
         }
       stage('Ansible Deploy') {
            steps {
-               sh 'ansible -i hosts -m ping all'
+               sh 'ansible -i hosts adduser.yaml '
             }
         }
     }
